@@ -2,7 +2,7 @@ from . import *
 
 num_workers = os.cpu_count()
 
-class Dataset_TGSpam(Dataset):
+class Dataset_TG_Spam(Dataset):
     def __init__(self, root, train):
         super().__init__()
         
@@ -75,7 +75,7 @@ class Dataset_TGSpam(Dataset):
         return outputs
     
 def load(root, train, batch_size):
-    dataset = Dataset_TGSpam(root, train)
+    dataset = Dataset_TG_Spam(root, train)
     dataset = DataLoader(
         dataset,
         batch_size,

@@ -1,8 +1,8 @@
 from . import *
 
 def run(root, batch_size, learning_rate, gamma, epochs):
-    dataset_train = datasets.load(os.path.join(root, "datasets/tg-spam/"), True, batch_size)
-    dataset_eval = datasets.load(os.path.join(root, "datasets/tg-spam/"), False, batch_size)
+    dataset_train = datasets.load(os.path.join(root, "data/tg-spam/"), True, batch_size)
+    dataset_eval = datasets.load(os.path.join(root, "data/tg-spam/"), False, batch_size)
     
     model_c = models.Model_C().to(device)
     
@@ -90,4 +90,4 @@ def run(root, batch_size, learning_rate, gamma, epochs):
                 }
             }
         }
-        torch.save(ckpt, os.path.join(root, f"ckpts/tg-spam/ckpt.{epoch+1}.pth"))
+        torch.save(ckpt, os.path.join(root, f"ckpt/tg-spam/ckpt.{epoch+1}.pth"))

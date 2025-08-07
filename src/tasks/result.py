@@ -1,7 +1,7 @@
 from . import *
 
 def run(root):
-    epochs = len(list(os.scandir(os.path.join(root, "ckpts/tg-spam/"))))
+    epochs = len(list(os.scandir(os.path.join(root, "ckpt/tg-spam/"))))
     
     metrics_train_loss_c = []
     metrics_train_accuracy_c = []
@@ -9,7 +9,7 @@ def run(root):
     metrics_eval_accuracy_c = []
     
     for epoch in range(epochs):
-        ckpt = torch.load(os.path.join(root, f"ckpts/tg-spam/ckpt.{epoch+1}.pth"), device)
+        ckpt = torch.load(os.path.join(root, f"ckpt/tg-spam/ckpt.{epoch+1}.pth"), device)
         metric_train_loss_c = ckpt["metrics"]["train"]["loss"]["c"]
         metric_train_accuracy_c = ckpt["metrics"]["train"]["accuracy"]["c"]
         metric_eval_loss_c = ckpt["metrics"]["eval"]["loss"]["c"]

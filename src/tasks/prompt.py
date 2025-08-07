@@ -24,7 +24,7 @@ def in_vocab(char):
 
 @torch.no_grad()
 def run(root, epoch, input):
-    ckpt = torch.load(os.path.join(root, f"ckpts/tg-spam/ckpt.{epoch}.pth"), device)
+    ckpt = torch.load(os.path.join(root, f"ckpt/tg-spam/ckpt.{epoch}.pth"), device)
     
     model_c = models.Model_C().to(device)
     model_c.load_state_dict(ckpt["models"]["c"])
